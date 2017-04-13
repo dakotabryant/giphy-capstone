@@ -1,14 +1,12 @@
 let gifArray = [];
-let round1 = [[],[],[],[]];
-let round2 = [[],[]];
-let round3 = [];
+
 
 
 $(function(){
   const apiKey = "dc6zaTOxFJmzC";
   const endpointURL = "http://api.giphy.com/v1/gifs/search";
 
-  
+
 function getData(searchTerm, callback){
     const query={
       api_key:apiKey,
@@ -24,7 +22,7 @@ function getData(searchTerm, callback){
 
 function getGifs(object) {
   object.data.map(function(item) {
-  gifArray.push(item.url);
+  gifArray.push(item.images.downsized_large.url);
   })
   console.log(gifArray);
 displayRound(gifArray);
@@ -79,6 +77,3 @@ getData('the office', getGifs);
 //
 //  $('.js-search-results').html(resultElements);
 //}
-
-
-

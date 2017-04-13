@@ -14,6 +14,9 @@
   @media screen and (max-width: 990px) and (min-width: 550px)
     @content
 
+*
+  transition: ease-in-out .5s
+
 // Color Variables
 
 $thinkful: #6799ff
@@ -22,11 +25,14 @@ $thinkful: #6799ff
 
 .uppercase
   text-transform: uppercase
+.hidden
+  display: none !important
 
 // CSS imports
 
 @import header
 @import section-one
+@import image-round
 
 //font import
 
@@ -38,3 +44,20 @@ a
   text-decoration: none
 body
   font-family: 'Montserrat', sans-serif
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: black
+  color: white
+button
+  background-color: transparent
+  color: white
+  border: 2px solid white
+  font-family: 'Montserrat', sans-serif
+  height: 50px
+  width: 250px
+  margin-top: 25px
+  cursor: pointer
+  &:hover
+    background-color: white
+    color: black
