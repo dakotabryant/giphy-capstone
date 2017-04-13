@@ -1,0 +1,37 @@
+=desktop()
+  @media screen and (min-width: 990px)
+    @content
+=ultra()
+  @media screen and (min-width: 1921px)
+    @content
+=mobile()
+  @media screen and (max-width: 989px)
+    @content
+=laptop()
+  @media screen and (min-width: 990px) and (max-width: 1412px)
+    @content
+=tablet()
+  @media screen and (max-width: 990px) and (min-width: 550px)
+    @content
+
+// Color Variables
+
+$thinkful: #6799ff
+
+// Styling Classes
+
+.uppercase
+  text-transform: uppercase
+
+// CSS imports
+
+@import header
+
+//font import
+
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat|Roboto+Condensed')
+
+// Global Styles
+
+a
+  text-decoration: none
