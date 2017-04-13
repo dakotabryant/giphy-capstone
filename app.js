@@ -1,11 +1,8 @@
-let gifArray = [];
-
-
-
 $(function(){
-  const apiKey = "dc6zaTOxFJmzC";
-  const endpointURL = "http://api.giphy.com/v1/gifs/search";
-
+let gifArray = [];
+const apiKey = "dc6zaTOxFJmzC";
+const endpointURL = "http://api.giphy.com/v1/gifs/search";
+let user_input;
 
 function getData(searchTerm, callback){
     const query={
@@ -17,63 +14,49 @@ function getData(searchTerm, callback){
   }
 
 
-
-//modification functions
-
 function getGifs(object) {
   object.data.map(function(item) {
   gifArray.push(item.images.downsized_large.url);
   })
   console.log(gifArray);
-displayRound(gifArray);
-displayRound(gifArray);
 }
-function displayRound(arr) {
-  console.log(arr[Math.floor(Math.random()*arr.length)]);
-  // console.log(str)
-}
-getData('the office', getGifs);
+
+$('.search-form').submit(function(e){
+  user_input = $('#search-box').val();
+  getData(user_input, getGifs);
+  e.preventDefault();
+  setTimeout(function(){
+    $('.landing-page, .img-round').toggleClass('hidden');
+   document.getElementById('#img1').src = `${gifArray[0]}`;
+   document.getElementById('#img2').src = `${gifArray[1]}`;
+  
+ }, 1000)
+  
+  
+})
+//if click was index 0 , remove index 1, if click was index1 remove index zero
+$('.img-block').on('click', 'img', function(event){
+  console.log(event);
+
+    if($(this).attr("src")===gifArray[0]) {
+      gifArray.splice(1,1);
+    }
+      else
+      {
+        gifArray.splice(0,1);
+      }
+         document.getElementById('#img1').src = `${gifArray[0]}`;
+         document.getElementById('#img2').src = `${gifArray[1]}`;
+   
+    
+  })
 })
 
-  // function showThumbnail(data){
-  //   let thumbnails = `<p>No Results</p>`;
-  //   console.log(data);
-  //   if (data.items) {
-  //     thumbnails = data.items.map(function(item){
-  //       if(item.id.kind === "youtube#channel") {
-  //         return `<div class="video-container"><a target="_blank" href="https://www.youtube.com/channel/${item.id.channelId}"><img src=" ${item.snippet.thumbnails.high.url} " /></a><p class='video-title'>${item.snippet.title}</p></div>`
-  //       } else {
-  //         return `<div class="video-container"><a target="_blank" href="https://www.youtube.com/watch?v=${item.id.videoId}"><img src=" ${item.snippet.thumbnails.high.url} " /></a><p class='video-title'>${item.snippet.title}</p></div>`
-  //       }
 
-  //     })
-  //   }
-
-  //   $('.js-container').append(thumbnails);
-  // }
-  // $('.search-form').submit(function(event) {
-  //   event.preventDefault();
-  //   if ($('.search-form').hasClass('at-top')) {
-  //     $('.search-form, .logo').toggleClass('')
-  //   } else {
-  //     $('.search-form, .logo').toggleClass('at-top')
-  //   }
-
-  //   $('.js-container').empty();
-  //   let searchTerm = $('#search-box').val();
-  //     getData(searchTerm, showThumbnail);
-  // })
-
-//item.snippet.thumbnails.high.url
-
-//function displayOMDBSearchData(data) {
-//  var resultElements = '<p>No results</p>';
-//
-//  if (data.Search) {
-//    resultElements = data.Search.map(function(item) {
-//      return '<p>' + item.Title + '</p>';
-//    });
-//  }
-//
-//  $('.js-search-results').html(resultElements);
-//}
+//Things for tomorrow
+// Set up edge case when array is emtpy
+// set up copy to clip board
+// set up current champion graphic
+//fix image block height
+// Check if set timeout will fuck us up // alternative
+  
