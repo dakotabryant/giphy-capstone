@@ -54,6 +54,4 @@ $(function() {
 //Things for tomorrow
 // Set up edge case when array is emtpy
 // set up copy to clip board
-// set up current champion graphic
 //fix image block height
-// Check if set timeout will fuck us up // alternative
