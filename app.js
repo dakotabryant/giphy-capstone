@@ -20,14 +20,16 @@ $(function() {
             gifArray.push(item.images.downsized_large.url);
         })
     }
+
     function renderImages() {
-      $('.landing-page, .img-round').toggleClass('hidden');
-      document.getElementById('#img1').src = `${gifArray[0]}`;
-      document.getElementById('#img2').src = `${gifArray[1]}`;
+        $('.landing-page, .img-round').toggleClass('hidden');
+        $('#img1').attr('src', `${gifArray[0]}`);
+        $('#img2').attr('src', `${gifArray[1]}`)
     }
+
     function renderView(data) {
-      buildGifArray(data);
-      renderImages();
+        buildGifArray(data);
+        renderImages();
     }
 
     $('.search-form').submit(function(e) {
@@ -40,11 +42,11 @@ $(function() {
     $('.img-block').on('click', 'img', function(event) {
         console.log(event);
         if ($(this).attr("src") !== gifArray[championIndex]) {
-          championIndex = currentIndex;
+            championIndex = currentIndex;
         }
         currentIndex++;
-        document.getElementById('#img1').src = `${gifArray[championIndex]}`;
-        document.getElementById('#img2').src = `${gifArray[currentIndex]}`;
+        $('#img1').attr('src', `${gifArray[championIndex]}`);
+        $('#img2').attr('src', `${gifArray[currentIndex]}`)
     })
 })
 
