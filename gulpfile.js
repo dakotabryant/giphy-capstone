@@ -8,7 +8,7 @@ gulp.task('serve', ['sass'], function() {
     });
 
     gulp.watch(['sass/*.sass'], ['sass']);
-    gulp.watch(['*.html', '*.js'])
+    gulp.watch(['*.html', 'scripts/*.js'])
         .on('change', browserSync.reload);
 });
 

@@ -33,12 +33,15 @@ form {
   justify-content: center;
   align-items: center; }
   form input {
+    background-color: rgba(255, 255, 255, 0.4);
     width: 500px;
     height: 25px;
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     font-weight: bold;
-    outline: none; }
+    outline: none;
+    border: 2px solid white;
+    color: white; }
 
 .img-round .imgs-container {
   display: flex;
@@ -52,6 +55,10 @@ form {
     .img-round .imgs-container .img-block:nth-of-type(1) {
       border: 5px solid #e4c053;
       padding: 15px; }
+    .img-round .imgs-container .img-block a {
+      width: 100%;
+      display: flex;
+      justify-content: center; }
     .img-round .imgs-container .img-block button {
       margin-top: 25px;
       width: 50%; }
@@ -79,3 +86,7 @@ button {
   button:hover {
     background-color: white;
     color: black; }
+  @media screen and (max-width: 990px) and (min-width: 550px) {
+    button {
+      top: 0;
+      left: 0; } }

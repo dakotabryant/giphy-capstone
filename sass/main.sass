@@ -22,6 +22,7 @@
 
 $thinkful: #6799ff
 
+
 // Styling Classes
 
 .uppercase
@@ -29,7 +30,7 @@ $thinkful: #6799ff
 .hidden
   display: none !important
 
-// CSS imports
+// Sass imports
 
 @import header
 @import section-one
@@ -50,6 +51,7 @@ body
   align-items: center
   background-color: black
   color: white
+
 button
   background-color: transparent
   color: white
@@ -59,6 +61,11 @@ button
   width: 250px
   margin-top: 25px
   cursor: pointer
+
   &:hover
     background-color: white
     color: black
+  +tablet()
+
+    top: 0
+    left: 0
