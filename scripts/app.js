@@ -32,15 +32,15 @@ $(function() {
     }
 // Function to update the srcs when we have a new set of images
     function updateSrcs() {
-        $('#img1').attr('src', `${gifArray[championIndex]}`);
-        $('#img2').attr('src', `${gifArray[challengerIndex]}`);
+        $('#img1').attr('src', gifArray[championIndex]);
+        $('#img2').attr('src', gifArray[challengerIndex]);
     }
 // Function to update the urls attached to the buttons
     function updateUrls(){
       championUrl = gifArray[championIndex];
       challengerUrl = gifArray[challengerIndex];
-      $('#championButton').attr('href', `${championUrl}`);
-      $('#challengerButton').attr('href', `${challengerUrl}`)
+      $('#championButton').attr('href', championUrl);
+      $('#challengerButton').attr('href', challengerUrl)
     }
 // Renders our view, which shows images, and updates the Urls accordingly
     function renderView(data) {
