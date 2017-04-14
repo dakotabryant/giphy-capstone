@@ -15,43 +15,85 @@
   justify-content: center;
   align-items: center;
   flex-direction: column; }
+  @media screen and (max-width: 989px) {
+    .container {
+      height: 95vh; } }
 
 h1 {
   font-size: 56px; }
+  @media screen and (max-width: 989px) {
+    h1 {
+      font-size: 24px; } }
 
 img {
   width: 250px; }
+  @media screen and (max-width: 989px) {
+    img {
+      width: 75px; } }
 
 p {
   font-size: 22px;
   width: 35%;
   text-align: center; }
+  @media screen and (max-width: 989px) {
+    p {
+      font-size: 16px;
+      width: 100%;
+      padding-left: 15px;
+      padding-right: 15px; } }
 
 form {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center; }
   form input {
     background-color: rgba(255, 255, 255, 0.4);
     width: 500px;
-    height: 25px;
+    height: 52px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     outline: none;
     border: 2px solid white;
-    color: white; }
+    color: white;
+    padding-left: 15px; }
+    @media screen and (max-width: 989px) {
+      form input {
+        width: 75%; } }
+  form button {
+    width: 52px;
+    height: 52px;
+    margin-top: 0;
+    border: none;
+    opacity: 0; }
+  form img {
+    width: 52px;
+    height: 52px;
+    cursor: pointer;
+    border: 2px solid white;
+    margin-left: -52px; }
+
+@media screen and (max-width: 989px) {
+  .img-round h1 {
+    margin-top: 100px; } }
 
 .img-round .imgs-container {
   display: flex;
   align-items: center; }
+  @media screen and (max-width: 989px) {
+    .img-round .imgs-container {
+      display: block;
+      height: 100%; } }
   .img-round .imgs-container .img-block {
     margin: 125px 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; }
+    @media screen and (max-width: 989px) {
+      .img-round .imgs-container .img-block {
+        height: 100%;
+        margin: 25px auto; } }
     .img-round .imgs-container .img-block:nth-of-type(1) {
       border: 5px solid #e4c053;
       padding: 15px; }
@@ -61,6 +103,9 @@ form {
     .img-round .imgs-container .img-block .top-img {
       height: 150px;
       width: auto; }
+      @media screen and (max-width: 989px) {
+        .img-round .imgs-container .img-block .top-img {
+          height: 50px; } }
     .img-round .imgs-container .img-block .img-wrapper {
       margin: 25px auto;
       display: flex;
@@ -69,6 +114,11 @@ form {
       height: 250px;
       width: 250px;
       overflow: hidden; }
+      @media screen and (max-width: 989px) {
+        .img-round .imgs-container .img-block .img-wrapper {
+          height: 200px;
+          width: 100%;
+          overflow: hidden; } }
       .img-round .imgs-container .img-block .img-wrapper img {
         height: auto;
         width: 100%;
@@ -91,6 +141,9 @@ body {
   align-items: center;
   background-color: black;
   color: white; }
+  @media screen and (max-width: 989px) {
+    body {
+      text-align: center; } }
 
 button {
   background-color: transparent;
