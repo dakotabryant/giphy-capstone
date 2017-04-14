@@ -62,6 +62,7 @@ form {
       height: 150px;
       width: auto; }
     .img-round .imgs-container .img-block .img-wrapper {
+      margin: 25px auto;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -70,7 +71,8 @@ form {
       overflow: hidden; }
       .img-round .imgs-container .img-block .img-wrapper img {
         height: auto;
-        width: 100%; }
+        width: 100%;
+        cursor: pointer; }
     .img-round .imgs-container .img-block a {
       width: 100%;
       display: flex;

@@ -1,18 +1,18 @@
 $(function() {
     let gifArray = [];
-    let challengerIndex = 1;
     let championIndex = 0;
+    let challengerIndex = 1;
     let currentOffset = 1;
     let championUrl = gifArray[championIndex];
     let challengerUrl = gifArray[challengerIndex];
 
-    const apiKey = "dc6zaTOxFJmzC";
-    const endpointURL = "http://api.giphy.com/v1/gifs/search";
+    const apiKey = 'dc6zaTOxFJmzC';
+    const endpointURL = 'http://api.giphy.com/v1/gifs/search';
     let user_input;
 
     function getData(query, callback) {
-            query.api_key = apiKey;
-            query.limit = 100;
+        query.api_key = apiKey;
+        query.limit = 100;
 
         $.getJSON(endpointURL, query, callback);
     }
@@ -26,23 +26,27 @@ $(function() {
     function renderImages() {
         $('.landing-page').addClass('hidden');
         $('.img-round').removeClass('hidden');
+        updateSrcs();
+        currentOffset+=100;
+    }
+
+    function updateSrcs() {
         $('#img1').attr('src', `${gifArray[championIndex]}`);
         $('#img2').attr('src', `${gifArray[challengerIndex]}`);
-        currentOffset+=100;
-
+    }
+    function updateUrls(){
+      championUrl = gifArray[championIndex];
+      challengerUrl = gifArray[challengerIndex];
+      $('#championButton').attr('href', `${championUrl}`);
+      $('#challengerButton').attr('href', `${challengerUrl}`)
     }
 
     function renderView(data) {
         buildGifArray(data);
         renderImages();
         updateUrls();
-        $('#championButton').attr('href', `${championUrl}`);
-        $('#challengerButton').attr('href', `${challengerUrl}`);
     }
-    function updateUrls(){
-      championUrl = gifArray[championIndex];
-      challengerUrl = gifArray[challengerIndex];
-    }
+    
 
     $('.search-form').submit(function(e) {
         e.preventDefault();
@@ -52,28 +56,18 @@ $(function() {
 
     //if click was index 0 , remove index 1, if click was index1 remove index zero
     $('.img-block').on('click', 'img', function(event) {
-        if ($(this).attr("src") !== gifArray[championIndex]) {
+        if ($(this).attr('src') !== gifArray[championIndex]) {
             championIndex = challengerIndex;
             updateUrls();
-            $('#championButton').attr('href', `${championUrl}`);
-            console.log(challengerIndex);
-            console.log(challengerUrl)
         }
         challengerIndex++;
         updateUrls();
-        $('#challengerButton').attr('href', `${challengerUrl}`)
-
         if(challengerIndex === gifArray.length) {
-             getData({q: user_input, offset: currentOffset}, renderView);
+            getData({q: user_input, offset: currentOffset}, renderView);
         }
-
-        $('#img1').attr('src', `${gifArray[championIndex]}`);
-        $('#img2').attr('src', `${gifArray[challengerIndex]}`);
-
-
+            updateSrcs();
     })
 })
 
 
-//Things for tomorrow
-//fix image block height
+
