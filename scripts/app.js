@@ -76,5 +76,4 @@ $(function() {
 
 
 //Things for tomorrow
-// set up copy to clip board
 //fix image block height
