@@ -2,16 +2,15 @@ $(function() {
     let gifArray = [];
     let currentIndex = 1;
     let championIndex = 0;
+    let currentOffset = 1;
     const apiKey = "dc6zaTOxFJmzC";
     const endpointURL = "http://api.giphy.com/v1/gifs/search";
     let user_input;
 
-    function getData(searchTerm, callback) {
-        const query = {
-            api_key: apiKey,
-            q: searchTerm,
-            limit: 100
-        }
+    function getData(query, callback) {
+            query.api_key = apiKey;
+            query.limit = 100;
+        
         $.getJSON(endpointURL, query, callback);
     }
 
@@ -22,9 +21,12 @@ $(function() {
     }
 
     function renderImages() {
-        $('.landing-page, .img-round').toggleClass('hidden');
-        $('#img1').attr('src', `${gifArray[0]}`);
-        $('#img2').attr('src', `${gifArray[1]}`)
+        $('.landing-page').addClass('hidden');
+        $('.img-round').removeClass('hidden');
+        $('#img1').attr('src', `${gifArray[championIndex]}`);
+        $('#img2').attr('src', `${gifArray[currentIndex]}`);
+        currentOffset+=100;
+
     }
 
     function renderView(data) {
@@ -35,7 +37,7 @@ $(function() {
     $('.search-form').submit(function(e) {
         e.preventDefault();
         user_input = $('#search-box').val();
-        getData(user_input, renderView);
+        getData({q: user_input}, renderView);
     })
 
     //if click was index 0 , remove index 1, if click was index1 remove index zero
@@ -45,13 +47,19 @@ $(function() {
             championIndex = currentIndex;
         }
         currentIndex++;
+        if(currentIndex === gifArray.length) {
+             getData({q: user_input, offset: currentOffset}, renderView);
+        }
+        
         $('#img1').attr('src', `${gifArray[championIndex]}`);
-        $('#img2').attr('src', `${gifArray[currentIndex]}`)
+        $('#img2').attr('src', `${gifArray[currentIndex]}`);
+        console.log(currentOffset);
+        
+       
     })
 })
 
 
 //Things for tomorrow
-// Set up edge case when array is emtpy
 // set up copy to clip board
 //fix image block height
