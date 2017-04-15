@@ -65,6 +65,6 @@ $(function() {
         if(challengerIndex === gifArray.length) {
             getData({q: user_input, offset: currentOffset}, renderView);
         }
-            updateSrcs();
-    })
-})
+        updateSrcs();
+    });
+});
